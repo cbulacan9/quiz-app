@@ -1,43 +1,114 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
+    <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Quiz App</a>
-          <span class="navbar-brand">Score: {{ score }} / {{ quiz.length }}</span>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Quiz App</a>
+            <span class="navbar-brand">Score: {{ score }} / {{ quiz.length }}</span>
         </div>
         <div class="collapse navbar-collapse">
-        </div><!--/.nav-collapse -->
-      </div>
+        </div>
+        <!--/.nav-collapse -->
     </div>
+</div>
 
- <!--    <div>
+<!--    <div>
       <li ng-repeat="question in quiz">
         <strong>{{ question.q }}</strong>
       </li>
     </div> -->
- 
-    <div class="container" ng-controller="MainCtrl" >
-      <div class="jumbotron question" ng-repeat="question in quiz | orderBy:'difficulty'">
+
+<div class="container" ng-controller="MainCtrl">
+    <div class="jumbotron question" ng-repeat="question in quiz | orderBy:'difficulty'">
         <form action="">
-        <h2>{{ $index + 1 }} - {{ question.q }}</h2>
-          <ul id='question-list' ng-repeat="options in question.options">
-            <li><input ng-click="checkAnswer(options, question)" type="radio" name="" value="{{ options.value }}"> {{ options.value }} </li>
-          </ul>
-          <hr>
-          <h7> Question: {{ $index + 1 }} / {{ quiz.length }} </h7>
+            <h2>{{ $index + 1 }} - {{ question.q }}</h2>
+            <ul id='question-list' ng-repeat="options in question.options">
+                <li>
+                    <input ng-click="checkAnswer(options, question)" type="radio" name="" value="{{ options.value }}"> {{ options.value }} </li>
+            </ul>
+            <hr>
+            <h7> Question: {{ $index + 1 }} / {{ quiz.length }} </h7>
         </form>
-      </div>
- 
-    </div><!-- /.container -->
- 
- 
-    <!-- Bootstrap core JavaScript
+    </div>
+
+    <!--  Add Question Form -->
+    <div class="jumbotron question">
+        <form name="my-form" ng-submit='newQuestion(question, option1, option2, option3, option4, answer)'>
+            <h2>Add New Question</h2>
+            <div class="form-group">
+                <label for="Question" class="col-sm-2 control-label">Question:</label>
+                <input type="text" class="form-control" placeholder="Text input" ng-model='question'>
+            </div>
+
+            <div class="form-group row">
+                <div class='col-sm-6'>
+                    <label for="Question" class="control-label">Answer Option 1:</label>
+                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'option1'>
+                </div>
+                <div class="checkbox col-sm-6">
+                    <label>
+                        <input type="checkbox" ng-model= 'answer'> Correct Answer
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class='col-sm-6'>
+                    <label for="Question" class="control-label">Answer Option 2:</label>
+
+                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'option2'>
+                </div>
+                <div class="checkbox col-sm-6">
+                    <label>
+                         <input type="checkbox" ng-model= 'answer'> Correct Answer
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class='col-sm-6'>
+                    <label for="Question" class="control-label">Answer Option 3:</label>
+                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'option3'>
+                </div>
+                <div class="checkbox col-sm-6">
+                    <label>
+                         <input type="checkbox" ng-model= 'answer'> Correct Answer
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class='col-sm-6'>
+                    <label for="Question" class="control-label">Answer Option 4:</label>
+                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'option4'>
+                </div>
+                <div class="checkbox col-sm-6">
+                    <label>
+                        <input type="checkbox" ng-model= 'answer'> Correct Answer
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<!-- /.container -->
+
+
+</div>
+
+
+<!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
-    <!--<script src="../../dist/js/bootstrap.min.js"></script>-->
+<!-- Placed at the end of the document so the pages load faster -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+<!--<script src="../../dist/js/bootstrap.min.js"></script>-->
