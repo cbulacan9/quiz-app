@@ -37,21 +37,21 @@
 
     <!--  Add Question Form -->
     <div class="jumbotron question">
-        <form name="my-form" ng-submit='newQuestion(question, option1, option2, option3, option4, answer)'>
+        <form name="my-form" ng-submit='newQuestion()'>
             <h2>Add New Question</h2>
             <div class="form-group">
                 <label for="Question" class="col-sm-2 control-label">Question:</label>
-                <input type="text" class="form-control" placeholder="Text input" ng-model='question'>
+                <input type="text" class="form-control" placeholder="Text input" ng-model='nextQuestion.q'>
             </div>
 
             <div class="form-group row">
                 <div class='col-sm-6'>
                     <label for="Question" class="control-label">Answer Option 1:</label>
-                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'option1'>
+                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'nextQuestion.options[0].value'>
                 </div>
-                <div class="checkbox col-sm-6">
+                <div class="col-sm-6">
                     <label>
-                        <input type="checkbox" ng-model= 'answer'> Correct Answer
+                        <input name="ans" type="radio" ng-value="nextQuestion.options[0].value" ng-model= 'nextQuestion.answer' > Correct Answer
                     </label>
                 </div>
             </div>
@@ -60,11 +60,11 @@
                 <div class='col-sm-6'>
                     <label for="Question" class="control-label">Answer Option 2:</label>
 
-                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'option2'>
+                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'nextQuestion.options[1].value'>
                 </div>
-                <div class="checkbox col-sm-6">
+                <div class="col-sm-6">
                     <label>
-                         <input type="checkbox" ng-model= 'answer'> Correct Answer
+                         <input name="ans" type="radio" ng-value="nextQuestion.options[1].value" ng-model= 'nextQuestion.answer' > Correct Answer
                     </label>
                 </div>
             </div>
@@ -72,11 +72,11 @@
             <div class="form-group row">
                 <div class='col-sm-6'>
                     <label for="Question" class="control-label">Answer Option 3:</label>
-                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'option3'>
+                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'nextQuestion.options[2].value'>
                 </div>
-                <div class="checkbox col-sm-6">
+                <div class="col-sm-6">
                     <label>
-                         <input type="checkbox" ng-model= 'answer'> Correct Answer
+                         <input name="ans" type="radio" ng-value="nextQuestion.options[2].value" ng-model= 'nextQuestion.answer' > Correct Answer
                     </label>
                 </div>
             </div>
@@ -84,11 +84,11 @@
             <div class="form-group row">
                 <div class='col-sm-6'>
                     <label for="Question" class="control-label">Answer Option 4:</label>
-                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'option4'>
+                    <input type="text" class="form-control" placeholder="Text input" ng-model = 'nextQuestion.options[3].value'>
                 </div>
-                <div class="checkbox col-sm-6">
+                <div class="col-sm-6">
                     <label>
-                        <input type="checkbox" ng-model= 'answer'> Correct Answer
+                        <input name="ans" type="radio" ng-value="nextQuestion.options[3].value" ng-model= 'nextQuestion.answer' > Correct Answer
                     </label>
                 </div>
             </div>
@@ -99,6 +99,7 @@
             </div>
         </form>
     </div>
+
 
 </div>
 <!-- /.container -->

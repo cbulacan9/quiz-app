@@ -38,8 +38,7 @@ angular.module('quizApp')
 		  'q': "Which project used a local data store?",
 		  'options':[{ 'value': 'TripPlanner'} ,{ 'value': 'Twitter.js'} , {'value' : 'WikiWalker'} , { 'value': 'WikiStack'}],
 		  'answer':'Twitter.js',
-		  'difficulty':  1
-		}
+ 		}
 	];
 
 	$scope.checkAnswer = function(guess, question) {
@@ -51,25 +50,32 @@ angular.module('quizApp')
 		else {
 			alert('Wrong Answer');
 		}
-	}
+	};
 
 	$scope.score = 0;
 
-  $scope.newQuestion = function(question, option1, option2, option3, option4, answer) {
-    var newObj = {
-      q: question,
-      options: [],
-      answer: answer,
-      difficulty: 1
-    };
-    newObj.options.push({value: option1});
-    newObj.options.push({value: option2});
-    newObj.options.push({value: option3});
-    newObj.options.push({value: option4});
+	$scope.nextQuestion = {
+		options: []
+	};
 
-    $scope.quiz.push(newObj);
-    console.log($scope.quiz);
-  }
+  	$scope.newQuestion = function() {
+  	  // var newObj = {
+  	  //   q: question,
+  	  //   options: [],
+  	  //   answer: $scope.option3,
+  	  //   difficulty: 1
+  	  // };
+  	  // newObj.options.push({value: option1});
+  	  // newObj.options.push({value: option2});
+  	  // newObj.options.push({value: option3});
+  	  // newObj.options.push({value: option4});
+
+  	 $scope.quiz.push($scope.nextQuestion);
+
+  	 $scope.nextQuestion = { options: [] };
+
+
+  	};
 
   });
 
